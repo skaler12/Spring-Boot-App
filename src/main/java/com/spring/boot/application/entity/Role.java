@@ -9,7 +9,7 @@ import java.util.Objects;
 @Entity
 public class Role implements Serializable {
 
-
+    //tutaj mamy serializacje danych
     private static final long serialVersionUID = -6799961711743899698L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")

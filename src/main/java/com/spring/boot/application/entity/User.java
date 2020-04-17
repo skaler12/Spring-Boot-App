@@ -40,7 +40,7 @@ public class User implements Serializable {
     @NotBlank
     private String confirmPassword;
 
-    @Size(min=1)
+    @Size(min=1 )
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="user_roles",
     joinColumns = @JoinColumn(name = "user_id"),
