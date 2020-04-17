@@ -12,9 +12,10 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService{
     @Autowired
     UserRepository userRepository;
-
+//metoda zwracajaca wszystkich urzytkownikow
     @Override
     public Iterable<User>getAllUsers(){
+
         return userRepository.findAll();
     }
     //sprawdzam czy user o takim username juz istnieje
@@ -45,11 +46,12 @@ public class UserServiceImpl implements UserService{
         }
         return user;
     }
+    //znajdz usera po id
     @Override
     public User getUserById(Long id) throws Exception {
-        return userRepository.findById(id).orElseThrow(() -> new Exception("El usuario para editar no existe."));
+        return userRepository.findById(id).orElseThrow(() -> new Exception("This user for edit not exist."));
     }
-
+    //update user
     @Override
     public User updateUser(User fromUser) throws Exception {
         User toUser = getUserById(fromUser.getId());
@@ -62,6 +64,7 @@ public class UserServiceImpl implements UserService{
      * @param from
      * @param to
      */
+    //mapa pozwalajaca ustalic , zaktualizowac wartosci dla usera , metoda uzywana w metodzie udpateUser
     protected void mapUser(User from,User to) {
         to.setUsername(from.getUsername());
         to.setFirstName(from.getFirstName());
@@ -69,6 +72,7 @@ public class UserServiceImpl implements UserService{
         to.setEmail(from.getEmail());
         to.setRoles(from.getRoles());
     }
+    //metoda usuwajaca usera
     @Override
     public void deleteUser(Long id) throws Exception {
         User user = userRepository.findById(id)
