@@ -37,7 +37,6 @@ public class User implements Serializable {
     @NotBlank
     private String password;
     @Transient//wcale nie pobiera kolumny z DB
-    @NotBlank
     private String confirmPassword;
 
     @Size(min=1 )

@@ -8,5 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends CrudRepository<User,Long> {
+    //metoda szukajaca usera po username
     public Optional<User>findByUsername(String username);
 }
