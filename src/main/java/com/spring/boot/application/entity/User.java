@@ -4,6 +4,8 @@ package com.spring.boot.application.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
@@ -19,18 +21,26 @@ public class User implements Serializable {
     @GenericGenerator(name="native", strategy = "native")
     private  Long id;
     @Column//pobiera kolumny z tabeli ale bez danych
+    @NotBlank
+    @Size(min=5,max=8,message = "You must get first name")
     private String firstName;
     @Column
+    @NotBlank
     private String lastName;
     @Column
+    @NotBlank
     private String email;
     @Column
+    @NotBlank
     private String username;
     @Column
+    @NotBlank
     private String password;
     @Transient//wcale nie pobiera kolumny z DB
+    @NotBlank
     private String confirmPassword;
 
+    @Size(min=1)
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="user_roles",
     joinColumns = @JoinColumn(name = "user_id"),
