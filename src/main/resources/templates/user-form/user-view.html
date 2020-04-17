@@ -44,10 +44,10 @@
         <!--znacznik ul oznacza liste nieupozatkowana , jedyny dopuszczalny element wewnwtrz znaccznika to <li> ktory definiuje kolejnosc listy-->
         <ul class="nav nav-tabs justify-content-end">
             <li class="nav-item">
-                <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Users List</a>
+                <a class="nav-link " th:classappend=" ${listTab}" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">List</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">User Form</a>
+                <a class="nav-link" th:classappend=" ${formTab}" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Form</a>
             </li>
 
               <!--
