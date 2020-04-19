@@ -1,5 +1,6 @@
 package com.spring.boot.application.service;
 
+import com.spring.boot.application.dto.ChangePasswordForm;
 import com.spring.boot.application.entity.User;
 import com.spring.boot.application.repository.RoleRepository;
 import com.spring.boot.application.repository.UserRepository;
@@ -79,5 +80,24 @@ public class UserServiceImpl implements UserService{
                 .orElseThrow(() -> new Exception("UsernotFound in deleteUser -"+this.getClass().getName()));
 
         userRepository.delete(user);
+    }
+    @Override
+    public User changePassword(ChangePasswordForm form) throws Exception {
+        User user = getUserById(form.getId());
+
+        if ( !user.getPassword().equals(form.getCurrentPassword())) {
+            throw new Exception ("Current Password uncorrect.");
+        }
+
+        if( user.getPassword().equals(form.getNewPassword())) {
+            throw new Exception ("Change password unavaible, new password is the same how actually password");
+        }
+
+        if( !form.getNewPassword().equals(form.getConfirmPassword())) {
+            throw new Exception ("Mistake ! please confirm password correct ! ");
+        }
+
+        user.setPassword(form.getNewPassword());
+        return userRepository.save(user);
     }
 }

@@ -1,5 +1,6 @@
 package com.spring.boot.application.service;
 
+import com.spring.boot.application.dto.ChangePasswordForm;
 import com.spring.boot.application.entity.User;
 import org.springframework.stereotype.Service;
 
@@ -15,4 +16,7 @@ public interface UserService {
     public User updateUser(User user)throws Exception;
     //usun urzytkownika
     public void deleteUser(Long id) throws Exception;
+    //zmien haslo
+    public User changePassword(ChangePasswordForm form) throws Exception;
+
 }
