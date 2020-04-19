@@ -28,7 +28,7 @@
             <div class="col-12 user-img">
                 <img src="static/img/user.png" th:src="@{/img/user.png}"/>
             </div>
-            <form class="col-12" th:action="@{/login}" method="get">
+            <form class="col-12" th:action="@{/login}" method="post">
                 <div class="form-group" id="user-group">
                     <input type="text" class="form-control" placeholder="User Name" name="username"/>
                 </div>
@@ -39,7 +39,8 @@
             </form>
             <div class="col-12 forgot">
                 <!--przekierowanie jak zapomnisz hasla , jeszcze nie ma tego  -->
-                <a href="#">Forgot Password?</a>
+                <p><a href="#">Recordar contrasena?</a></p>
+                <p><a href="#" th:href="@{/signup}">Crear Usuario - Registrarse</a>
             </div>
             <!--dzialamy na klasach bootstrapowych, pokazuje tekst jak zle wpisze login i haslo badz jak sie wyloguje -->
             <div th:if="${param.error}" class="alert alert-danger" role="alert">

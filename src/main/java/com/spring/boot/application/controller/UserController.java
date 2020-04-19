@@ -1,7 +1,10 @@
 package com.spring.boot.application.controller;
 
+import com.spring.boot.application.UsernameOrIdNotFound;
 import com.spring.boot.application.dto.ChangePasswordForm;
+import com.spring.boot.application.entity.Role;
 import com.spring.boot.application.entity.User;
+import com.spring.boot.application.exception.CustomeFieldValidationException;
 import com.spring.boot.application.repository.RoleRepository;
 import com.spring.boot.application.service.UserService;
 import org.dom4j.rule.Mode;
@@ -15,6 +18,8 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
@@ -27,11 +32,42 @@ public class UserController {
     RoleRepository roleRepository;
 
     //podstawowa strona na domyslnym endpoincie
-    @GetMapping("/")
+    @GetMapping({"/","/login"})
     public String index() {
         return "index";
     }
+    @GetMapping("/signup")
+    public String signup(Model model) {
+        Role userRole = roleRepository.findByName("USER");
+        List<Role> roles = Arrays.asList(userRole);
 
+        model.addAttribute("signup",true);
+        model.addAttribute("userForm", new User());
+        model.addAttribute("roles",roles);
+        return "user-form/user-signup";
+    }
+
+    @PostMapping("/signup")
+    public String signupAction(@Valid @ModelAttribute("userForm")User user, BindingResult result, ModelMap model) {
+        Role userRole = roleRepository.findByName("USER");
+        List<Role> roles = Arrays.asList(userRole);
+        model.addAttribute("userForm", user);
+        model.addAttribute("roles",roles);
+        model.addAttribute("signup",true);
+
+        if(result.hasErrors()) {
+            return "user-form/user-signup";
+        }else {
+            try {
+                userService.createUser(user);
+            } catch (CustomeFieldValidationException cfve) {
+                result.rejectValue(cfve.getFieldName(), null, cfve.getMessage());
+            }catch (Exception e) {
+                model.addAttribute("formErrorMessage",e.getMessage());
+            }
+        }
+        return index();
+    }
     //wszystkie funkcjonalnosci jakie sa potrzebne do wyswietlenia formularza usera
     @GetMapping("/userForm")
     public String userForm(Model model) {
@@ -55,10 +91,16 @@ public class UserController {
                 model.addAttribute("userForm", new User());
                 model.addAttribute("listTab","active");
 
-            } catch (Exception e) {
+            } catch (CustomeFieldValidationException cfve) {
+                result.rejectValue(cfve.getFieldName(), null, cfve.getMessage());
+                model.addAttribute("userForm", user);
+                model.addAttribute("formTab","active");
+                model.addAttribute("userList", userService.getAllUsers());
+                model.addAttribute("roles",roleRepository.findAll());
+            }catch (Exception e) {
                 //jezeli cos nie tak to rzuc wyjatek
                 model.addAttribute("formErrorMessage",e.getMessage());
-                model.addAttribute("userForm", user);
+                model.addAttribute  ("userForm", user);
                 model.addAttribute("formTab","active");
                 model.addAttribute("userList", userService.getAllUsers());
                 model.addAttribute("roles",roleRepository.findAll());
@@ -122,11 +164,11 @@ public class UserController {
     }
     //wyszukanie po id i usuniecie konkretnego usera
     @GetMapping("/deleteUser/{id}")
-    public String deleteUser(Model model, @PathVariable(name="id") Long id) {
+    public String deleteUser(Model model, @PathVariable(name="id")Long id) throws Exception {
         try {
             userService.deleteUser(id);
-        } catch (Exception e) {
-            model.addAttribute("deleteError","The user could not be deleted.");
+        } catch (UsernameOrIdNotFound uoin) {
+            model.addAttribute("listErrorMessage",uoin.getMessage());
         }
         return userForm(model);
     }
