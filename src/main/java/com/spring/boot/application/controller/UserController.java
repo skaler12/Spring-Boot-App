@@ -31,8 +31,12 @@ public class UserController {
     @Autowired
     RoleRepository roleRepository;
 
+    @GetMapping("/")
+    public String start(){
+        return "start";
+    }
     //podstawowa strona na domyslnym endpoincie
-    @GetMapping({"/","/login"})
+    @GetMapping({"/login"})
     public String index() {
         return "index";
     }
