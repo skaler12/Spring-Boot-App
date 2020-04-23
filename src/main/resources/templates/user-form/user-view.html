@@ -46,9 +46,11 @@
 
 
 
-
             <li class="nav-item">
-                <a class="nav-link" id="for" data-toggle="tab" href="#forr" role="tab" aria-controls="form" aria-selected="true">Map</a>
+                <a class="nav-link" id="AboutApp" data-toggle="tab" href="#AboutApp1" role="tab" aria-controls="form" aria-selected="true">About App</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:classappend=" ${formTab}" data-toggle="tab" href="#Opinion" role="tab" aria-controls="form" aria-selected="true">Music Store</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="chat" data-toggle="tab" href="#chat1" role="tab" aria-controls="form" aria-selected="true">Chat</a>
@@ -99,13 +101,13 @@
 
 
 
-            <div class="tab-pane fade" id="forr" role="tabpanel" aria-labelledby="for">
+            <div class="tab-pane fade" th:classappend=" ${formTab}" id="Opinion" role="tabpanel" aria-labelledby="for">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Map</h4>
+                        <h4>Music Store</h4>
                     </div>
                     <div class="card-body">
-                        <div th:include="user-form/map.html" th:remove="tag"></div>
+                        <div th:include="user-form/musicStore.html" th:remove="tag"></div>
                     </div>
                 </div>
             </div>
@@ -117,6 +119,17 @@
                     </div>
                     <div class="card-body">
                         <div th:include="user-form/chat.html" th:remove="tag"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="AboutApp1" role="tabpanel" aria-labelledby="for">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>About App</h4>
+                    </div>
+                    <div class="card-body">
+                        <div th:include="user-form/aboutApp.html" th:remove="tag"></div>
                     </div>
                 </div>
             </div>
