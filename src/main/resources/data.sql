@@ -11,3 +11,4 @@ INSERT INTO `music_store` (`equipment_type`,`store_name`,`street`, `street_numbe
 VALUES ('perkusja','perkusjak','dluga',11);
 INSERT INTO `music_store` (`equipment_type`,`store_name`,`street`, `street_number`)
 VALUES ('gitara','gitarhero','ogrodowa',132);
+

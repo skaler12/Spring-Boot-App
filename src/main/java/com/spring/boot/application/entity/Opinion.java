@@ -4,13 +4,10 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
-@Table(name = "Opinion")
-public class Opinion implements Serializable {
-
-    private static final long serialVersionUID = 9137208142471420520L;
+public class Opinion  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -23,21 +20,25 @@ public class Opinion implements Serializable {
     @Column
     private int rating;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
-    private User user;
+   // @ManyToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "id")
+    //private User user;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "storeId")
-    private MusicStore musicStore;
+    //@ManyToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "storeId")
+    //private MusicStore musicStore;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "opinion_store",
+            joinColumns = @JoinColumn(name = "opinion_id"),
+            inverseJoinColumns = @JoinColumn(name = "store_id"))
+    private Set<MusicStore> musicStores;
+
 
     public Opinion() {
     }
-
-    public Opinion(Long opinionId, String text, int rating) {
-        this.opinionId = opinionId;
-        this.text = text;
-        this.rating = rating;
+    public Opinion(Long opinionId) {
+        this.opinionId=opinionId;
     }
 
     public Long getOpinionId() {
@@ -64,20 +65,29 @@ public class Opinion implements Serializable {
         this.rating = rating;
     }
 
-    public User getUser() {
+  /*  public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
     }
-
-    public MusicStore getMusicStore() {
+*/
+   /* public MusicStore getMusicStore() {
         return musicStore;
     }
 
     public void setMusicStore(MusicStore musicStore) {
         this.musicStore = musicStore;
+    }
+*/
+
+    public Set<MusicStore> getMusicStores() {
+        return musicStores;
+    }
+
+    public void setMusicStores(Set<MusicStore> musicStores) {
+        this.musicStores = musicStores;
     }
 
     @Override
@@ -88,13 +98,12 @@ public class Opinion implements Serializable {
         return rating == opinion.rating &&
                 Objects.equals(opinionId, opinion.opinionId) &&
                 Objects.equals(text, opinion.text) &&
-                Objects.equals(user, opinion.user) &&
-                Objects.equals(musicStore, opinion.musicStore);
+                Objects.equals(musicStores, opinion.musicStores);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(opinionId, text, rating, user, musicStore);
+        return Objects.hash(opinionId, text, rating, musicStores);
     }
 
     @Override
@@ -103,8 +112,7 @@ public class Opinion implements Serializable {
                 "opinionId=" + opinionId +
                 ", text='" + text + '\'' +
                 ", rating=" + rating +
-                ", user=" + user +
-                ", musicStore=" + musicStore +
+                ", musicStores=" + musicStores +
                 '}';
     }
 }

@@ -9,10 +9,9 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "musicStore")
-public class MusicStore implements Serializable {
+public class MusicStore {
 
 
-    private static final long serialVersionUID = 4541387723446944108L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name="native", strategy = "native")
@@ -22,17 +21,18 @@ public class MusicStore implements Serializable {
     @Column
     private String street;
     @Column
-    private int streetNumber;
+    private Integer streetNumber;
     @Column
     private String equipmentType;
     @Column
     private String linkGoogle;
-    @OneToMany(mappedBy = "musicStore", cascade = CascadeType.ALL)
-    private List<Opinion> opinionList;
 
     public MusicStore() {
     }
-    public MusicStore(Long storeId,String street,int streetNumber,String equipmentType,String linkGoogle){
+    public MusicStore(Long storeId) {
+        this.storeId=storeId;
+    }
+    public MusicStore(Long storeId,String street,Integer streetNumber,String equipmentType,String linkGoogle){
         this.storeId=storeId;
         this.street=street;
         this.streetNumber=streetNumber;
@@ -64,11 +64,11 @@ public class MusicStore implements Serializable {
         this.street = street;
     }
 
-    public int getStreetNumber() {
+    public Integer getStreetNumber() {
         return streetNumber;
     }
 
-    public void setStreetNumber(int streetNumber) {
+    public void setStreetNumber(Integer streetNumber) {
         this.streetNumber = streetNumber;
     }
 
@@ -88,31 +88,22 @@ public class MusicStore implements Serializable {
         this.linkGoogle = linkGoogle;
     }
 
-    public List<Opinion> getOpinionList() {
-        return opinionList;
-    }
-
-    public void setOpinionList(List<Opinion> opinionList) {
-        this.opinionList = opinionList;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MusicStore that = (MusicStore) o;
-        return streetNumber == that.streetNumber &&
-                Objects.equals(storeId, that.storeId) &&
+        return Objects.equals(storeId, that.storeId) &&
                 Objects.equals(storeName, that.storeName) &&
                 Objects.equals(street, that.street) &&
+                Objects.equals(streetNumber, that.streetNumber) &&
                 Objects.equals(equipmentType, that.equipmentType) &&
-                Objects.equals(linkGoogle, that.linkGoogle) &&
-                Objects.equals(opinionList, that.opinionList);
+                Objects.equals(linkGoogle, that.linkGoogle);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(storeId, storeName, street, streetNumber, equipmentType, linkGoogle, opinionList);
+        return Objects.hash(storeId, storeName, street, streetNumber, equipmentType, linkGoogle);
     }
 
     @Override
@@ -124,7 +115,6 @@ public class MusicStore implements Serializable {
                 ", streetNumber=" + streetNumber +
                 ", equipmentType='" + equipmentType + '\'' +
                 ", linkGoogle='" + linkGoogle + '\'' +
-                ", opinionList=" + opinionList +
                 '}';
     }
 }
