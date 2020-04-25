@@ -22,9 +22,9 @@
             <td></td>
             <td></td>
           <!--  <td><a th:href="${'/musicStore?id='+musicStore.storeId}">Details</a></td>-->
-            <td><a class="btn btn-warning" th:href="@{'/musicStore/'+${musicStore.storeId}} " role="button" style="color: white">Details</a></td>
+            <td><a class="btn btn-warning" th:href="${'/music?id='+all.storeId}" role="button" style="color: white">Details</a></td>
 
-                <!--<td>
+            <!--<td>
         <span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')} or (${#authorization.expression('hasRole(''ROLE_USER'')')} and ${#httpServletRequest.remoteUser==user.username})">
                             <a href="#" th:href="@{'/editUser/'+ ${user.id}}"><i class="fas fa-edit"></i></a>
                         </span>

@@ -25,16 +25,17 @@ public class MusicStoreController {
     @Autowired
     UserService userService;
 
-     @GetMapping("/musicStore")
+    @GetMapping("/musicStore")
     public String opinion(Model model) {
-      model.addAttribute("opinion", new Opinion());
-     model.addAttribute("opinions", opinionService.findAll());
-     model.addAttribute("musicStore", new MusicStore());
-     model.addAttribute("allStores", musicStoreService.findAll());
-         model.addAttribute("listTab","active");
+        model.addAttribute("opinion", new Opinion());
+        model.addAttribute("opinions", opinionService.findAll());
+        model.addAttribute("musicStore", new MusicStore());
+        model.addAttribute("allStores", musicStoreService.findAll());
+        model.addAttribute("listTab", "active");
 
-         return "musicStore-form/Music-view";
+        return "musicStore-form/Music-view";
     }
+
     @PostMapping("/musicStore")
     public String createOpinion(Opinion opinion, Model model, MusicStore musicStore) {
         opinionService.save(opinion);
@@ -43,11 +44,18 @@ public class MusicStoreController {
         model.addAttribute("stores", musicStoreService.findAll());
         return "musicStore-form/Music-view";
     }
-    @GetMapping("/musicStore/{id}")
-    public String getDetails(@PathVariable(name = "id") Long storeId, Model model) {
-        MusicStore musicStore = musicStoreService.findById(storeId).get();
-        model.addAttribute("musicStore", musicStore);
+    /*@GetMapping("/musicStore/{storeId}")
+    public String getDetails(Model model, @PathVariable(name = "storeId") Integer storeId) {
+        Optional<MusicStore> musicStoreById = Optional.of(musicStoreService.findById(storeId).get());
+        model.addAttribute("musicStoreById", musicStoreById);
         model.addAttribute("allStores", musicStoreService.findAll());
         return "musicStore-form/Music-view";
+    }*/
+
+    @RequestMapping("/music")
+    public String getStudent(@RequestParam("id") Integer id, Model model) {
+       MusicStore musicStore = musicStoreService.findById(id).get();
+        model.addAttribute("MusicStore", musicStore);
+        return "music";
     }
 }

@@ -15,7 +15,7 @@ public class MusicStore {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name="native", strategy = "native")
-    private Long storeId;
+    private Integer storeId;
     @Column
     private String storeName;
     @Column
@@ -29,10 +29,10 @@ public class MusicStore {
 
     public MusicStore() {
     }
-    public MusicStore(Long storeId) {
+    public MusicStore(Integer storeId) {
         this.storeId=storeId;
     }
-    public MusicStore(Long storeId,String street,Integer streetNumber,String equipmentType,String linkGoogle){
+    public MusicStore(Integer storeId,String street,Integer streetNumber,String equipmentType,String linkGoogle){
         this.storeId=storeId;
         this.street=street;
         this.streetNumber=streetNumber;
@@ -40,11 +40,11 @@ public class MusicStore {
         this.linkGoogle=linkGoogle;
     }
 
-    public Long getStoreId() {
+    public Integer getStoreId() {
         return storeId;
     }
 
-    public void setStoreId(Long storeId) {
+    public void setStoreId(Integer storeId) {
         this.storeId = storeId;
     }
 

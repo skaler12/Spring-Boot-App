@@ -12,9 +12,9 @@ public class Opinion  {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private Long opinionId;
+    private Integer opinionId;
 
-    @Column(name = "text")
+    @Column
     private String text;
 
     @Column
@@ -37,15 +37,15 @@ public class Opinion  {
 
     public Opinion() {
     }
-    public Opinion(Long opinionId) {
+    public Opinion(Integer opinionId) {
         this.opinionId=opinionId;
     }
 
-    public Long getOpinionId() {
+    public Integer getOpinionId() {
         return opinionId;
     }
 
-    public void setOpinionId(Long opinionId) {
+    public void setOpinionId(Integer opinionId) {
         this.opinionId = opinionId;
     }
 

@@ -17,7 +17,7 @@ public class OpinionService {
 
     public Iterable<Opinion> findAll(){return opinionRepository.findAll();}
     public Opinion save(Opinion opinion){return  opinionRepository.save(opinion);}
-    public Optional<Opinion> findById(Long id){return opinionRepository.findById(id);}
+    public Optional<Opinion> findById(Integer id){return opinionRepository.findById(id);}
     public void delete(Opinion opinion){opinionRepository.delete(opinion);}
 
 
