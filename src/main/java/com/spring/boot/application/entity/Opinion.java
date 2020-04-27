@@ -15,6 +15,9 @@ public class Opinion  {
     private Integer opinionId;
 
     @Column
+    private String objectName;
+
+    @Column
     private String text;
 
     @Column
@@ -24,16 +27,9 @@ public class Opinion  {
     //@JoinColumn(name = "id")
     //private User user;
 
-    //@ManyToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "storeId")
+   // @ManyToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "store_id")
     //private MusicStore musicStore;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "opinion_store",
-            joinColumns = @JoinColumn(name = "opinion_id"),
-            inverseJoinColumns = @JoinColumn(name = "store_id"))
-    private Set<MusicStore> musicStores;
-
 
     public Opinion() {
     }
@@ -65,7 +61,15 @@ public class Opinion  {
         this.rating = rating;
     }
 
-  /*  public User getUser() {
+    public String getObjectName() {
+        return objectName;
+    }
+
+    public void setObjectName(String objectName) {
+        this.objectName = objectName;
+    }
+
+    /*  public User getUser() {
         return user;
     }
 
@@ -82,13 +86,8 @@ public class Opinion  {
     }
 */
 
-    public Set<MusicStore> getMusicStores() {
-        return musicStores;
-    }
 
-    public void setMusicStores(Set<MusicStore> musicStores) {
-        this.musicStores = musicStores;
-    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -97,13 +96,12 @@ public class Opinion  {
         Opinion opinion = (Opinion) o;
         return rating == opinion.rating &&
                 Objects.equals(opinionId, opinion.opinionId) &&
-                Objects.equals(text, opinion.text) &&
-                Objects.equals(musicStores, opinion.musicStores);
+                Objects.equals(text, opinion.text) ;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(opinionId, text, rating, musicStores);
+        return Objects.hash(opinionId, text, rating);
     }
 
     @Override
@@ -112,7 +110,6 @@ public class Opinion  {
                 "opinionId=" + opinionId +
                 ", text='" + text + '\'' +
                 ", rating=" + rating +
-                ", musicStores=" + musicStores +
                 '}';
     }
 }

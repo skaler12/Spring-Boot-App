@@ -4,11 +4,13 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
+class inne{
+    public Map<Integer,String> nazwy = new HashMap<>();
+}
 @Entity
-@Table(name = "musicStore")
+@Table(name = "musicstore")
 public class MusicStore {
 
 
@@ -27,17 +29,29 @@ public class MusicStore {
     @Column
     private String linkGoogle;
 
+   // @ManyToMany(fetch = FetchType.LAZY)
+    //@JoinTable(name = "opinion_store",
+      //      joinColumns = @JoinColumn(name = "store_id"),
+        //    inverseJoinColumns = @JoinColumn(name = "opinion_id"))
+    //private Set<Opinion>opinionSet ;
+
+
+   //@OneToMany(cascade = CascadeType.ALL)
+   //private List<Opinion>opinionList;
+
     public MusicStore() {
     }
     public MusicStore(Integer storeId) {
         this.storeId=storeId;
     }
-    public MusicStore(Integer storeId,String street,Integer streetNumber,String equipmentType,String linkGoogle){
+    public MusicStore(Integer storeId,String storeName, String street,Integer streetNumber,String equipmentType,String linkGoogle, Map<Integer,String>nazwy){
         this.storeId=storeId;
         this.street=street;
         this.streetNumber=streetNumber;
         this.equipmentType=equipmentType;
         this.linkGoogle=linkGoogle;
+        this.storeName=storeName;
+        nazwy.put(storeId, storeName);
     }
 
     public Integer getStoreId() {
@@ -87,6 +101,7 @@ public class MusicStore {
     public void setLinkGoogle(String linkGoogle) {
         this.linkGoogle = linkGoogle;
     }
+
 
     @Override
     public boolean equals(Object o) {

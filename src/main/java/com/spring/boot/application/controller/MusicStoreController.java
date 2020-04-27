@@ -5,6 +5,7 @@ import com.spring.boot.application.dto.ChangePasswordForm;
 import com.spring.boot.application.entity.MusicStore;
 import com.spring.boot.application.entity.Opinion;
 import com.spring.boot.application.entity.User;
+import com.spring.boot.application.service.Covid19Parser;
 import com.spring.boot.application.service.MusicStoreService;
 import com.spring.boot.application.service.OpinionService;
 import com.spring.boot.application.service.UserService;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.Optional;
 
 
@@ -25,13 +27,23 @@ public class MusicStoreController {
     @Autowired
     UserService userService;
 
+    private Covid19Parser covid19Parser;
+
+    public MusicStoreController(Covid19Parser covid19Parser) {
+        this.covid19Parser = covid19Parser;
+    }
+
+
     @GetMapping("/musicStore")
-    public String opinion(Model model) {
+    public String opinion(Model model) /*throws IOException*/ {
         model.addAttribute("opinion", new Opinion());
         model.addAttribute("opinions", opinionService.findAll());
         model.addAttribute("musicStore", new MusicStore());
         model.addAttribute("allStores", musicStoreService.findAll());
         model.addAttribute("listTab", "active");
+
+       // model.addAttribute("points", covid19Parser.getCovidData());
+
 
         return "musicStore-form/Music-view";
     }
