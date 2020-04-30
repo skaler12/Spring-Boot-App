@@ -6,11 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
 
-class inne{
-    public Map<Integer,String> nazwy = new HashMap<>();
-}
 @Entity
-@Table(name = "musicstore")
 public class MusicStore {
 
 

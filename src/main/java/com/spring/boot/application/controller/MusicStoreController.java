@@ -29,9 +29,9 @@ public class MusicStoreController {
 
     private Covid19Parser covid19Parser;
 
-    public MusicStoreController(Covid19Parser covid19Parser) {
-        this.covid19Parser = covid19Parser;
-    }
+//    public MusicStoreController(Covid19Parser covid19Parser) {
+  //      this.covid19Parser = covid19Parser;
+   // }
 
 
     @GetMapping("/musicStore")
