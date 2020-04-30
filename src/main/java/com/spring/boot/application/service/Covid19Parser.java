@@ -15,7 +15,7 @@ import org.apache.commons.csv.CSVRecord;
 @Service
 public class Covid19Parser {
 
-    private static final String url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv";
+    /*private static final String url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv";
 
     public List<Point> getCovidData() throws IOException {
         List<Point> poits = new ArrayList<>();
@@ -32,5 +32,5 @@ public class Covid19Parser {
             poits.add(new Point(lat, lon, text));
         }
         return poits;
-    }
+    }*/
 }

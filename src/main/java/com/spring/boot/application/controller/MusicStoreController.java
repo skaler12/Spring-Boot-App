@@ -27,7 +27,7 @@ public class MusicStoreController {
     @Autowired
     UserService userService;
 
-    private Covid19Parser covid19Parser;
+   // private Covid19Parser covid19Parser;
 
 //    public MusicStoreController(Covid19Parser covid19Parser) {
   //      this.covid19Parser = covid19Parser;
