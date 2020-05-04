@@ -40,14 +40,13 @@ public class MusicStore {
     public MusicStore(Integer storeId) {
         this.storeId=storeId;
     }
-    public MusicStore(Integer storeId,String storeName, String street,Integer streetNumber,String equipmentType,String linkGoogle, Map<Integer,String>nazwy){
+    public MusicStore(Integer storeId,String storeName, String street,Integer streetNumber,String equipmentType,String linkGoogle){
         this.storeId=storeId;
         this.street=street;
         this.streetNumber=streetNumber;
         this.equipmentType=equipmentType;
         this.linkGoogle=linkGoogle;
         this.storeName=storeName;
-        nazwy.put(storeId, storeName);
     }
 
     public Integer getStoreId() {

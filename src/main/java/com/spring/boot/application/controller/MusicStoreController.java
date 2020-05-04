@@ -29,7 +29,7 @@ public class MusicStoreController {
 
 
     @GetMapping("/musicStore")
-    public String opinion(Model model) /*throws IOException*/ {
+    public String opinion(Model model) {
         model.addAttribute("opinion", new Opinion());
         model.addAttribute("opinions", opinionService.findAll());
         model.addAttribute("musicStore", new MusicStore());
