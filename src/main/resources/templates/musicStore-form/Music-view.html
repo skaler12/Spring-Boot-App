@@ -1,4 +1,5 @@
 
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Music Store Information</title>
@@ -46,11 +47,9 @@
             <li class="nav-item">
                 <a class="nav-link" th:classappend=" ${listTab} "id="Stores" data-toggle="tab" href="#all" role="tab" aria-controls="form" aria-selected="true">All Stores</a>
             </li>
-
             <li class="nav-item">
-                <a class="nav-link" id="OpinionAllHowHave" data-toggle="tab" href="#allOpinions" role="tab" aria-controls="form" aria-selected="true">All Opinions</a>
+                <a class="nav-link" id="Details" data-toggle="tab" href="#Details1" role="tab" aria-controls="form" aria-selected="true">Store Details</a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" id="Opinion" data-toggle="tab" href="#Opinion1" role="tab" aria-controls="form" aria-selected="true">Get Opinion</a>
             </li>
@@ -80,20 +79,6 @@
                 </div>
             </div>
 
-            <div class="tab-pane fade show" id="allOpinions" role="tabpanel" aria-labelledby="list-tab">
-                <div class="card">
-                    <div class="card-header">
-                        <!--nazwa sekcji - header -->
-                        <h4>All Opinions</h4>
-                    </div>
-                    <div class="card-body">
-                        <!--link do przejscia na inna templatke z user-list-->
-                        <div th:include="musicStore-form/allOpinions.html" th:remove="tag"></div>
-                    </div>
-                </div>
-            </div>
-
-
             <div class="tab-pane fade" id="Opinion1" role="tabpanel" aria-labelledby="for">
                 <div class="card">
                     <div class="card-header">
@@ -104,7 +89,16 @@
                     </div>
                 </div>
             </div>
-
+            <div class="tab-pane fade" id="Details1" role="tabpanel" aria-labelledby="for">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Detail store</h4>
+                    </div>
+                    <div class="card-body">
+                        <div th:include="musicStore-form/allOpinions.html" th:remove="tag"></div>
+                    </div>
+                </div>
+            </div>
             <div class="tab-pane fade" id="Map1" role="tabpanel" aria-labelledby="for">
                 <div class="card">
                     <div class="card-header">
@@ -115,7 +109,7 @@
                     </div>
                 </div>
             </div>
-         </div>
+        </div>
     </div>
 </div>
 </body>
