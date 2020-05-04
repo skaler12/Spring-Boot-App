@@ -2,14 +2,11 @@ package com.spring.boot.application.controller;
 
 import com.spring.boot.application.UsernameOrIdNotFound;
 import com.spring.boot.application.dto.ChangePasswordForm;
-import com.spring.boot.application.entity.Opinion;
 import com.spring.boot.application.entity.Role;
 import com.spring.boot.application.entity.User;
 import com.spring.boot.application.exception.CustomeFieldValidationException;
 import com.spring.boot.application.repository.RoleRepository;
-import com.spring.boot.application.service.OpinionService;
 import com.spring.boot.application.service.UserService;
-import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
