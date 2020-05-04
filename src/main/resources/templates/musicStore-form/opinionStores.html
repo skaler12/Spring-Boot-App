@@ -1,4 +1,31 @@
 
-<div>
+<div xmlns:th="http://www.w3.org/1999/xhtml">
+    <form th:action="@{/musicStore}" th:object="${opinion}" method="post" id="userForm">
 
+
+        <label  th:text="StoreName "></label><br>
+        <select class="form-control" th:field="${opinion.musicStores}" th:disabled="${disableFields}">
+            <option th:each="mes :${musicStores}" th:value="${mes.storeId}" th:text="${mes.storeName}">
+            </option>
+        </select>
+
+        <br>
+
+        <label  th:text="Opinion"></label><br/>
+        <input   type="text" placeholder="Opinion" th:field="${opinion.text}"/>
+        <br>
+        <label  th:text="Rating"></label><br/>
+        <select th:field="${opinion.rating}" multiple="multiple" style="width: 100px">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br>
+        <br>
+        <input type="submit" class="btn btn-primary" value="confirm">
+
+
+    </form>
 </div>

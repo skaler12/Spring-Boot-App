@@ -1,3 +1,38 @@
-<div>
+<div class="table-responsive" xmlns:th="http://www.w3.org/1999/xhtml">
+    <table id="allStores" class="table table-bordered table-hover table-striped">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">Store name</th>
+            <th scope="col">Street</th>
+            <th scope="col">Street Number</th>
+            <th scope="col">Equipment Type</th>
+            <th scope="col">Google link</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Details</th>
+            <th ></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <tr th:each="all: ${allStores}">
+            <td th:text="${all.storeName}"></td>
+            <td th:text="${all.street}"></td>
+            <td th:text="${all.streetNumber}"></td>
+            <td th:text="${all.linkGoogle}"></td>
+            <td></td>
+            <td></td>
+            <!--  <td><a th:href="${'/musicStore?id='+musicStore.storeId}">Details</a></td>-->
+            <td><a class="btn btn-warning" th:href="${'/music?id='+all.storeId}" role="button" style="color: white">Details</a></td>
 
+            <!--<td>
+        <span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')} or (${#authorization.expression('hasRole(''ROLE_USER'')')} and ${#httpServletRequest.remoteUser==user.username})">
+                            <a href="#" th:href="@{'/editUser/'+ ${user.id}}"><i class="fas fa-edit"></i></a>
+                        </span>
+                    <span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" >
+                        | <a href="#" th:onclick="'javascript:confirmDelete(\''+ ${user.id} +'\');'"><i class="fas fa-user-times"></i></a>
+                    </span>
+                </td>-->
+        </tr>
+        </tbody>
+    </table>
 </div>

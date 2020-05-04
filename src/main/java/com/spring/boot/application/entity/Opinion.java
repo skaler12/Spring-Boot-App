@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Opinion  {
@@ -19,9 +20,6 @@ public class Opinion  {
     @Column
     private int rating;
 
-    @Column
-    private String objectName;
-
     // @ManyToOne(cascade = CascadeType.ALL)
     //@JoinColumn(name = "id")
     //private User user;
@@ -29,6 +27,12 @@ public class Opinion  {
     //@ManyToOne(cascade = CascadeType.ALL)
     //@JoinColumn(name = "storeId")
     //private MusicStore musicStore;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "opinion_store",
+            joinColumns = @JoinColumn(name = "opinion_id"),
+            inverseJoinColumns = @JoinColumn(name = "store_id"))
+    private Set<MusicStore> musicStores;
 
 
     public Opinion() {
@@ -61,14 +65,7 @@ public class Opinion  {
         this.rating = rating;
     }
 
-    public String getObjectName() {
-        return objectName;
-    }
-
-    public void setObjectName(String objectName) {
-        this.objectName = objectName;
-    }
-    /*  public User getUser() {
+  /*  public User getUser() {
         return user;
     }
     public void setUser(User user) {
@@ -83,7 +80,13 @@ public class Opinion  {
     }
 */
 
+    public Set<MusicStore> getMusicStores() {
+        return musicStores;
+    }
 
+    public void setMusicStores(Set<MusicStore> musicStores) {
+        this.musicStores = musicStores;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -92,12 +95,13 @@ public class Opinion  {
         Opinion opinion = (Opinion) o;
         return rating == opinion.rating &&
                 Objects.equals(opinionId, opinion.opinionId) &&
-                Objects.equals(text, opinion.text);
+                Objects.equals(text, opinion.text) &&
+                Objects.equals(musicStores, opinion.musicStores);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(opinionId, text, rating);
+        return Objects.hash(opinionId, text, rating, musicStores);
     }
 
     @Override
@@ -106,6 +110,7 @@ public class Opinion  {
                 "opinionId=" + opinionId +
                 ", text='" + text + '\'' +
                 ", rating=" + rating +
+                ", musicStores=" + musicStores +
                 '}';
     }
 }
