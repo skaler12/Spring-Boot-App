@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div>opinion</div>
-</body>
-</html>
+<div xmlns:th="http://www.w3.org/1999/xhtml">
+    <form th:action="@{/musicStore}" th:object="${opinion}" method="post" id="userForm">
+
+
+        <label  th:text="StoreName "></label><br>
+        <select class="form-control" th:field="${opinion.objectName}" th:disabled="${disableFields}">
+            <option value="muzyk">muzyk</option>
+            <option value="drummer">drumer</option>
+            <option value="sopran">sopran</option>
+            <option value="alt">alt</option>
+            <option value="magictumtumtum">magictumtumtum</option>
+        </select>
+
+        <!--<label  th:text="Opinion"></label><br/>
+        <input   type="text" placeholder="Opinion" th:field="${opinion.musicStore.storeName}"/>
+        <br>-->
+
+        <label  th:text="Opinion"></label><br/>
+        <input   type="text" placeholder="Opinion" th:field="${opinion.text}"/>
+        <br>
+
+        <label  th:number="Rating"></label><br/>
+        <select class="form-control" th:field="${opinion.rating}" th:disabled="${disableFields}">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br>
+        <br>
+
+        <input type="submit" class="btn btn-primary" value="confirm">
+
+    </form>
+</div>

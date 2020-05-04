@@ -19,6 +19,9 @@ public class Opinion  {
     @Column
     private int rating;
 
+    @Column
+    private String objectName;
+
     // @ManyToOne(cascade = CascadeType.ALL)
     //@JoinColumn(name = "id")
     //private User user;
@@ -58,7 +61,14 @@ public class Opinion  {
         this.rating = rating;
     }
 
-  /*  public User getUser() {
+    public String getObjectName() {
+        return objectName;
+    }
+
+    public void setObjectName(String objectName) {
+        this.objectName = objectName;
+    }
+    /*  public User getUser() {
         return user;
     }
     public void setUser(User user) {
