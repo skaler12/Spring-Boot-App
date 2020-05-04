@@ -5,11 +5,7 @@
             <th scope="col">Store name</th>
             <th scope="col">Street</th>
             <th scope="col">Street Number</th>
-            <th scope="col">Equipment Type</th>
             <th scope="col">Google link</th>
-            <th scope="col">Rating</th>
-            <th scope="col">Details</th>
-            <th ></th>
         </tr>
         </thead>
         <tbody>
@@ -19,10 +15,8 @@
             <td th:text="${all.street}"></td>
             <td th:text="${all.streetNumber}"></td>
             <td th:text="${all.linkGoogle}"></td>
-            <td></td>
-            <td></td>
             <!--  <td><a th:href="${'/musicStore?id='+musicStore.storeId}">Details</a></td>-->
-            <td><a class="btn btn-warning" th:href="${'/music?id='+all.storeId}" role="button" style="color: white">Details</a></td>
+            <td><a class="btn btn-warning" role="button" style="color: white">Details</a></td>
 
             <!--<td>
         <span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')} or (${#authorization.expression('hasRole(''ROLE_USER'')')} and ${#httpServletRequest.remoteUser==user.username})">
