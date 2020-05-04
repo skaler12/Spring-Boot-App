@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.*;
 
 @Entity
+@Table(name = "musicStore")
 public class MusicStore {
 
 
@@ -40,7 +41,7 @@ public class MusicStore {
     public MusicStore(Integer storeId) {
         this.storeId=storeId;
     }
-    public MusicStore(Integer storeId,String storeName, String street,Integer streetNumber,String equipmentType,String linkGoogle){
+    public MusicStore(Integer storeId, String street,Integer streetNumber,String equipmentType,String linkGoogle,String storeName){
         this.storeId=storeId;
         this.street=street;
         this.streetNumber=streetNumber;
