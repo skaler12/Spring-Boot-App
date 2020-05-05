@@ -2,6 +2,7 @@ package com.spring.boot.application.controller;
 
 import com.spring.boot.application.entity.MusicStore;
 import com.spring.boot.application.entity.Opinion;
+import com.spring.boot.application.service.Covid19Parser;
 import com.spring.boot.application.service.MusicStoreService;
 import com.spring.boot.application.service.OpinionService;
 import com.spring.boot.application.service.UserService;
@@ -21,6 +22,12 @@ public class MusicStoreController {
     MusicStoreService musicStoreService;
     @Autowired
     UserService userService;
+
+     private Covid19Parser covid19Parser;
+
+        public MusicStoreController(Covid19Parser covid19Parser) {
+          this.covid19Parser = covid19Parser;
+     }
 
     @GetMapping("/musicStore")
     public String opinion(Model model) {

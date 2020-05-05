@@ -46,7 +46,7 @@
                 <a class="nav-link" th:classappend=" ${listTab} "id="Stores" data-toggle="tab" href="#all" role="tab" aria-controls="form" aria-selected="true">All Stores</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="Details" data-toggle="tab" href="#Details1" role="tab" aria-controls="form" aria-selected="true">Store Details</a>
+                <a class="nav-link" id="Details" data-toggle="tab" href="#Details1" role="tab" aria-controls="form" aria-selected="true">All Opinions</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="Opinion" data-toggle="tab" href="#Opinion1" role="tab" aria-controls="form" aria-selected="true">Get Opinion</a>
@@ -80,7 +80,7 @@
             <div class="tab-pane fade" id="Opinion1" role="tabpanel" aria-labelledby="for">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Opinion Store</h4>
+                        <h4>Get Opinion</h4>
                     </div>
                     <div class="card-body">
                         <div th:include="musicStore-form/opinionStores.html" th:remove="tag"></div>
@@ -90,7 +90,7 @@
             <div class="tab-pane fade" id="Details1" role="tabpanel" aria-labelledby="for">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Detail store</h4>
+                        <h4>All Opinions</h4>
                     </div>
                     <div class="card-body">
                         <div th:include="musicStore-form/AllOpinion.html" th:remove="tag"></div>
