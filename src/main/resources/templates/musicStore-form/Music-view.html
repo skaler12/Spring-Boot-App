@@ -56,6 +56,10 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" id="Idea" data-toggle="tab" href="#Idea1" role="tab" aria-controls="form" aria-selected="true">Get Idea</a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="#" th:href="@{/userForm}"><span th:text="${#authentication.getPrincipal().getUsername()}">
                 </span> - <span>Go Back</span>
                     <span class="float-right"><i class="fas fa-sign-out-alt"></i></span></a>
@@ -83,6 +87,16 @@
                     </div>
                     <div class="card-body">
                         <div th:include="musicStore-form/opinionStores.html" th:remove="tag"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="Idea1" role="tabpanel" aria-labelledby="for">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Get Idea</h4>
+                    </div>
+                    <div class="card-body">
+                        <div th:include="musicStore-form/idea.html" th:remove="tag"></div>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,9 @@
 package com.spring.boot.application.controller;
 
+import com.spring.boot.application.entity.Idea;
 import com.spring.boot.application.entity.MusicStore;
 import com.spring.boot.application.entity.Opinion;
+import com.spring.boot.application.service.IdeaService;
 import com.spring.boot.application.service.MusicStoreService;
 import com.spring.boot.application.service.OpinionService;
 import com.spring.boot.application.service.UserService;
@@ -20,9 +22,8 @@ public class MusicStoreController {
     MusicStoreService musicStoreService;
     @Autowired
     UserService userService;
-
-
-
+    @Autowired
+    IdeaService ideaService;
 
     @GetMapping("/musicStore")
     public String opinion(Model model) {
@@ -30,16 +31,18 @@ public class MusicStoreController {
         model.addAttribute("opinions", opinionService.findAll());
         model.addAttribute("musicStore", new MusicStore());
         model.addAttribute("allStores", musicStoreService.findAll());
+        model.addAttribute("idea",new Idea());
         model.addAttribute("listTab", "active");
-
         return "musicStore-form/Music-view";
     }
 
     @PostMapping("/musicStore")
-    public String createOpinion(Opinion opinion, Model model) {
+    public String createOpinion(Opinion opinion, Model model,Idea idea) {
         opinionService.save(opinion);
+        ideaService.save(idea);
         model.addAttribute("opinion", new Opinion());
         model.addAttribute("opinions", opinionService.findAll());
+        model.addAttribute("idea", new Idea());
         model.addAttribute("listTab", "active");
         return "redirect:/musicStore";
     }

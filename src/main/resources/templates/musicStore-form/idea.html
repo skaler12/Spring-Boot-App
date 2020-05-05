@@ -1,0 +1,12 @@
+<div xmlns:th="http://www.w3.org/1999/xhtml">
+    <form th:action="@{/musicStore}" th:object="${idea}" method="post" id="userForm">
+
+        <label  th:text="nickname"></label><br/>
+        <input   type="text" placeholder="nickname" th:field="${idea.nickname}"/>
+        <br>
+        <label  th:text="propose"></label><br/>
+        <input   type="text" placeholder="message" th:field="${idea.ideaText}"/>
+        <br>
+        <button type="submit" class="btn btn-warning">Send</button>
+    </form>
+</div>
