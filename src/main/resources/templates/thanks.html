@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -40,26 +39,11 @@
 </head>
 <body>
 <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h4>Store Name</h4><br>
-                <a th:text="${MusicStore.storeName}"></a>
-            </div>
-            <div class="card-header">
-                <h4>Street</h4><br>
-                <a th:text="${MusicStore.street}"></a>
-            </div>
-            <div class="card-header">
-                <h4>Street Number</h4><br>
-                <a th:number="${MusicStore.streetNumber}"></a>
-            </div>
-            <div class="card-header">
-                <h4>Google Maps</h4><br>
-                <a th:text="${MusicStore.linkGoogle}"></a>
-            </div>
-        </div>
+    <div class="card">
+        <h1>Thanks for your opinion! </h1>
+    </div>
     <br>
-    <a href="https://spring-boot-gp.herokuapp.com/musicStore" >Go to all Stores</a>
+    <a href="http://localhost:8080/musicStore" >Go to all Stores</a>
 </div>
 </body>
 </html>

@@ -41,12 +41,12 @@ public class MusicStoreController {
     }
 
     @PostMapping("/musicStore")
-    public String createOpinion(Opinion opinion, Model model, MusicStore musicStore) {
+    public String createOpinion(Opinion opinion, Model model) {
         opinionService.save(opinion);
         model.addAttribute("opinion", new Opinion());
         model.addAttribute("opinions", opinionService.findAll());
-        model.addAttribute("stores", musicStoreService.findAll());
-        return "musicStore-form/Music-view";
+        model.addAttribute("listTab", "active");
+        return "redirect:/musicStore";
     }
     /*@GetMapping("/musicStore/{storeId}")
     public String getDetails(Model model, @PathVariable(name = "storeId") Integer storeId) {
@@ -56,10 +56,14 @@ public class MusicStoreController {
         return "musicStore-form/Music-view";
     }*/
 
-    @RequestMapping("/music")
+    @GetMapping("/music")
     public String getStudent(@RequestParam("id") Integer id, Model model) {
         MusicStore musicStore = musicStoreService.findById(id).get();
         model.addAttribute("MusicStore", musicStore);
         return "music";
+    }
+    @GetMapping("/thanks")
+    public String thanking(){
+        return "thanks";
     }
 }
