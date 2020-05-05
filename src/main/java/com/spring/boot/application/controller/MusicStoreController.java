@@ -2,7 +2,6 @@ package com.spring.boot.application.controller;
 
 import com.spring.boot.application.entity.MusicStore;
 import com.spring.boot.application.entity.Opinion;
-import com.spring.boot.application.service.Covid19Parser;
 import com.spring.boot.application.service.MusicStoreService;
 import com.spring.boot.application.service.OpinionService;
 import com.spring.boot.application.service.UserService;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -23,11 +21,8 @@ public class MusicStoreController {
     @Autowired
     UserService userService;
 
-     private Covid19Parser covid19Parser;
 
-        public MusicStoreController(Covid19Parser covid19Parser) {
-          this.covid19Parser = covid19Parser;
-     }
+
 
     @GetMapping("/musicStore")
     public String opinion(Model model) {
@@ -62,8 +57,5 @@ public class MusicStoreController {
         model.addAttribute("MusicStore", musicStore);
         return "music";
     }
-    @GetMapping("/thanks")
-    public String thanking(){
-        return "thanks";
-    }
+
 }

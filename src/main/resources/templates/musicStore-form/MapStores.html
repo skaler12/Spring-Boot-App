@@ -11,16 +11,16 @@
 <body>
 <div id="mapid"></div>
 <script th:inline="javascript">
-    var points = [[${points}]];
-    var map = L.map('mapid').setView([52.95, 19.23], 10);
+    var map = L.map('mapid').setView([54.51, 18.53], 10);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-    points.forEach(value => {
-        L.marker([value.lat, value.lon]).addTo(map)
-            .bindPopup(value.text)
-            .openPopup();
-    })
+        L.marker([54.51, 18.53]).addTo(map)
+        .bindPopup("Witaj Gdynia ! ")
+        .openPopup();
+    L.marker([54.55, 18.57]).addTo(map)
+        .bindPopup("Witaj Morze ! ")
+        .openPopup();
 </script>
 </body>
 </html>
