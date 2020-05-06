@@ -23,20 +23,6 @@ public class Opinion  {
     @Column
     private int rating;
 
-    // @ManyToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "id")
-    //private User user;
-
-    //@ManyToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "storeId")
-    //private MusicStore musicStore;
-
-    /*@ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "opinion_store",
-            joinColumns = @JoinColumn(name = "opinion_id"),
-            inverseJoinColumns = @JoinColumn(name = "store_id"))
-    private Set<MusicStore> musicStores;
-*/
 
     public Opinion() {
     }
@@ -80,28 +66,6 @@ public class Opinion  {
     public void setStoreName(String storeName) {
         this.storeName = storeName;
     }
-    /*  public User getUser() {
-        return user;
-    }
-    public void setUser(User user) {
-        this.user = user;
-    }
-*/
-   /* public MusicStore getMusicStore() {
-        return musicStore;
-    }
-    public void setMusicStore(MusicStore musicStore) {
-        this.musicStore = musicStore;
-    }
-*/
-
-    /*public Set<MusicStore> getMusicStores() {
-        return musicStores;
-    }
-
-    public void setMusicStores(Set<MusicStore> musicStores) {
-        this.musicStores = musicStores;
-    }*/
 
     @Override
     public boolean equals(Object o) {

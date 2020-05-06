@@ -46,13 +46,6 @@ public class MusicStoreController {
         model.addAttribute("listTab", "active");
         return "redirect:/musicStore";
     }
-    /*@GetMapping("/musicStore/{storeId}")
-    public String getDetails(Model model, @PathVariable(name = "storeId") Integer storeId) {
-        Optional<MusicStore> musicStoreById = Optional.of(musicStoreService.findById(storeId).get());
-        model.addAttribute("musicStoreById", musicStoreById);
-        model.addAttribute("allStores", musicStoreService.findAll());
-        return "musicStore-form/Music-view";
-    }*/
 
     @GetMapping("/music")
     public String getStudent(@RequestParam("id") Integer id, Model model) {
