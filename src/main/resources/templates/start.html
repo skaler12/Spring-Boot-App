@@ -2,42 +2,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Starting website! </title>
-
-    <!--JQUERY-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- FRAMEWORK BOOTSTRAP -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-    <!-- Font style and size-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-
-    <!-- CSS-->
-    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
-
+    <link rel="stylesheet" type="text/css" href="static/css/start.css" th:href="@{/css/start.css}">
 </head>
 <body>
-<div class="modal-dialog text-center">
-    <div style="font-size: 35px; color: black; opacity: 0.8; font-weight: bold">Welcome User! <br>Check Music Store !<br>
-    </div>
-    <div class="col-sm-8 main-section">
-        <div class="modal-content">
-            <div class="col-12 forgot">
-                <!--przekierowanie jak zapomnisz hasla , jeszcze nie ma tego  -->
-                <p><a href="#" th:href="@{/login}" style="color: gold">Go to login page</a>
+    <div id="container">
+        <div id="topbar">
+            Welcome User! <br>
+            Check Music Store !<br>
         </div>
-            <div style="height: 25px"></div>
-        </div>
-        <div class="col-sm-8 main-section">
-            <div class="modal-content">
-                <div class="col-12 forgot">
-                    <!--przekierowanie jak zapomnisz hasla , jeszcze nie ma tego  -->
-                    <p><a href="https://chatgp.herokuapp.com/" style="color: gold"> Chatting with others Users </a></p>
-                </div>
+        <div id="button">
+            <div id="buttonL">
+                        <!--przekierowanie jak zapomnisz hasla , jeszcze nie ma tego  -->
+                        <p><a href="#" th:href="@{/login}" style="color:black; margin-top: 100px;">Go to login page</a></p>
             </div>
-</div>
-</div>
+            <div id="buttonR">
+                            <!--przekierowanie jak zapomnisz hasla , jeszcze nie ma tego  -->
+                            <p><a href="https://chatgp.herokuapp.com/" style="color:black; margin-top: 100px;"> Chatting with others Users </a></p>
+            </div>
+        </div>
+        <div id = "footer" style="margin-top: 200px;">
+            Spring Boot - Music Store Application. Page on the web from 2020. &copy; All rights reserved.
+            <br/>
+            Created by Skaler12
+        </div>
+    </div>
 </body>
 </html>

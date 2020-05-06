@@ -1,0 +1,52 @@
+body{
+    background: url(../img/backgroung2.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+#container
+{
+    width: 1510px;
+    height: 800px;
+    margin: 50px;
+}
+#topbar
+{
+   text-align: center;
+    font-size: xx-large;
+    font-family: "Times New Roman";
+    color: black;
+}
+#button
+{
+    clear: both;
+    text-align: center;
+    font-size: xx-large;
+    font-family: Broadway;
+    margin-top:100px ;
+    width: 1510px;
+    opacity: 80%;
+}
+#buttonL
+{
+    background: lightseagreen;
+    height: 300px;
+    float: left;
+    width: 380px;
+    margin: 10px;
+    margin-left: 370px;
+}
+#buttonR
+{
+    background-color: gray;
+    height: 300px;
+    float: left;
+    width: 380px;
+    margin: 10px;
+}
+#footer{
+    margin-top: 200px;
+    clear: both;
+    color: #000000;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}
