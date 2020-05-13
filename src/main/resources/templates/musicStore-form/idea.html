@@ -1,12 +1,13 @@
 <div xmlns:th="http://www.w3.org/1999/xhtml">
     <form th:action="@{/musicStore}" th:object="${idea}" method="post" id="userForm">
 
-        <label  th:text="nickname"></label><br/>
-        <input   type="text" placeholder="nickname" th:field="${idea.nickname}"/>
+        <label  th:text="Nickname"></label><br/>
+        <input   style="width: 300px;" type="text" placeholder="nickname" th:field="${idea.nickname}"/>
         <br>
-        <label  th:text="propose"></label><br/>
-        <input   type="text" placeholder="message" th:field="${idea.ideaText}"/>
+        <label  th:text="Suggestion"></label><br/>
+        <input  style="width: 300px;" type="text" placeholder="suggestion" th:field="${idea.ideaText}"/>
         <br>
-        <button type="submit" class="btn btn-warning">Send</button>
+        <br>
+        <button type="submit" class="btn btn-warning" style="color: white">Send your suggestion</button>
     </form>
 </div>

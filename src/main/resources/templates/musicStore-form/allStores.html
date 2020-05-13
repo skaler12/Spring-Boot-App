@@ -5,8 +5,6 @@
             <th scope="col">Store name</th>
             <th scope="col">Street</th>
             <th scope="col">Street Number</th>
-            <th scope="col">Equipment Type</th>
-            <th scope="col">Google link</th>
             <th scope="col">Details</th>
         </tr>
         </thead>
@@ -16,8 +14,6 @@
             <td th:text="${all.storeName}"></td>
             <td th:text="${all.street}"></td>
             <td th:text="${all.streetNumber}"></td>
-            <td th:text="${all.equipmentType}"></td>
-            <td th:text="${all.linkGoogle}"></td>
             <td><a class="btn btn-warning" th:href="${'/music?id='+all.storeId}" role="button" style="color: white">Details</a></td>
         </tr>
         </tbody>

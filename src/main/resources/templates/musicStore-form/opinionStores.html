@@ -1,6 +1,6 @@
 
 <div xmlns:th="http://www.w3.org/1999/xhtml">
-    <form th:action="@{/musicStore}" th:object="${opinion}" method="post" id="userForm">
+    <form th:action="@{/musicStore}" th:object="${opinion}" method="post" id="userForm" style="text-align: center">
 
 
         <label  th:text="StoreName "></label><br>
@@ -15,7 +15,7 @@
         <br>
 
         <label  th:text="Opinion"></label><br/>
-        <input   type="text" placeholder="Opinion" th:field="${opinion.text}"/>
+        <input  style="width: 300px; height: 100px;" type="text" placeholder="Opinion" th:field="${opinion.text}"/>
         <br>
 
         <label  th:text="Rating"></label><br/>
@@ -27,6 +27,6 @@
             <option value="5">5</option>
         </select>
         <br>
-        <button type="submit" class="btn btn-warning">Add</button>
+        <button type="submit" class="btn btn-warning" style="color: white">Add</button>
     </form>
 </div>

@@ -54,12 +54,16 @@
                 <a th:number="${MusicStore.streetNumber}"></a>
             </div>
             <div class="card-header">
+                <h4>Description</h4><br>
+                <a th:text="${MusicStore.equipmentType}"></a>
+            </div>
+            <div class="card-header">
                 <h4>Google Maps</h4><br>
                 <a th:text="${MusicStore.linkGoogle}"></a>
             </div>
+            <br>
+            <a class="btn btn-warning" href="http://localhost:8080/musicStore" role="button" style="color: white; font-size: x-large">Go to all Stores</a><br>
         </div>
-    <br>
-    <a href="https://spring-boot-gp.herokuapp.com/musicStore" >Go to all Stores</a>
 </div>
 </body>
 </html>
