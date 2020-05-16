@@ -6,7 +6,7 @@ public class UsernameOrIdNotFound extends Exception {
 
 
     public UsernameOrIdNotFound() {
-        super("Usuario o Id no encontrado");
+        super();
     }
 
     public UsernameOrIdNotFound(String message) {

@@ -6,20 +6,21 @@
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
             crossorigin=""></script>
-    <style>#mapid { height: 900px; }</style>
+    <style>#mapid { height: 700px; }</style>
 </head>
 <body>
 <div id="mapid"></div>
 <script th:inline="javascript">
-    var map = L.map('mapid').setView([54.51, 18.53], 10);
+    var map = L.map('mapid').setView([52.95, 19.23], 10);
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-        L.marker([54.51, 18.53]).addTo(map)
-        .bindPopup("Witaj Gdynia ! ")
+        L.marker([52.14, 21.01]).addTo(map)
+        .bindPopup("Best Music Shop")
         .openPopup();
-    L.marker([54.55, 18.57]).addTo(map)
-        .bindPopup("Witaj Morze ! ")
+    L.marker([52.12, 21.00]).addTo(map)
+        .bindPopup("Drummer Pro")
         .openPopup();
 </script>
 </body>
