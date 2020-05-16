@@ -8,9 +8,9 @@ INSERT INTO `role` (`description`, `name`) VALUES ('ROLE_SUPERVISOR', 'SUPERVISO
 INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES ('1', '1');
 
 INSERT INTO `music_store` (`equipment_type`,`store_name`,`street`, `street_number`)
-VALUES ('Pro_Drummer ','Sklep z artukułami dla Perkusistów. Duży asortyment, produkty dostępne od ręki.','Czerniakowska',11);
+VALUES ('Sklep z artukułami dla Perkusistów. Duży asortyment, produkty dostępne od ręki.','Pro_Drummer ','Czerniakowska',11);
 INSERT INTO `music_store` (`equipment_type`,`store_name`,`street`, `street_number`)
-VALUES ('Best Music','Największy sklep muzyczny w Warszawie. Profesjonalna obsługa i najniższe ceny !','Marszalkowska',132);
+VALUES ('Największy sklep muzyczny w Warszawie. Profesjonalna obsługa i najniższe ceny !','Best Music','Marszalkowska',132);
 
 
 
