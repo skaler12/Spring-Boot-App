@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
     private boolean checkUsernameAvailable(User user) throws Exception {
         Optional<User> userFound = userRepository.findByUsername(user.getUsername());
         if (userFound.isPresent()) {
-            throw new CustomeFieldValidationException("Username no disponible","username");
+            throw new CustomeFieldValidationException("User","Error");
         }
         return true;
     }
@@ -41,11 +41,11 @@ public class UserServiceImpl implements UserService {
     //sprawdza czy haslo jest takie samo jak potwierdzenie hasla , jezeli nie to rzuca wyjatek
     private boolean checkPasswordValid(User user) throws Exception {
         if (user.getConfirmPassword() == null || user.getConfirmPassword().isEmpty()) {
-            throw new CustomeFieldValidationException("Confirm Password es obligatorio","confirmPassword");
+            throw new CustomeFieldValidationException("Confirm Password is required","confirmPassword");
         }
 
         if (!user.getPassword().equals(user.getConfirmPassword())) {
-            throw new CustomeFieldValidationException("Password y Confirm Password no son iguales","password");
+            throw new CustomeFieldValidationException("Password ","password");
         }
         return true;
     }
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService {
     //znajdz usera po id
     @Override
     public User getUserById(Long id) throws UsernameOrIdNotFound {
-        return userRepository.findById(id).orElseThrow(() -> new UsernameOrIdNotFound("El Id del usuario no existe."));
+        return userRepository.findById(id).orElseThrow(() -> new UsernameOrIdNotFound("User with this Id not exist."));
     }
 
     //update user
@@ -75,12 +75,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(toUser);
     }
 
-    /**
-     * Map everythin but the password.
-     *
-     * @param from
-     * @param to
-     */
+
     //mapa pozwalajaca ustalic , zaktualizowac wartosci dla usera , metoda uzywana w metodzie udpateUser
     protected void mapUser(User from, User to) {
         to.setUsername(from.getUsername());
@@ -134,17 +129,15 @@ public class UserServiceImpl implements UserService {
     }
 
     private User getLoggedUser() throws Exception {
-        //Obtener el usuario logeado
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         UserDetails loggedUser = null;
 
-        //Verificar que ese objeto traido de sesion es el usuario
         if (principal instanceof UserDetails) {
             loggedUser = (UserDetails) principal;
         }
         User myUser = userRepository
-                .findByUsername(loggedUser.getUsername()).orElseThrow(() -> new Exception("Error obteniendo el usuario logeado desde la sesion."));
+                .findByUsername(loggedUser.getUsername()).orElseThrow(() -> new Exception("Error"));
 
         return myUser;
     }

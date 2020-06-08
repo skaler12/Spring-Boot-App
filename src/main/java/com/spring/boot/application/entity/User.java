@@ -15,7 +15,6 @@ public class User implements Serializable {
 
 
     private static final long serialVersionUID = 1565840718717536855L;
-    //native to krajowy-nacjowy ,chyba chodzi o to ze w jezyku DB
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name="native", strategy = "native")

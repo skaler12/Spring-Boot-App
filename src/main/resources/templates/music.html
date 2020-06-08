@@ -24,7 +24,7 @@
 
     <!--  css file-->
     <link rel="stylesheet" type="text/css" href="static/css/user-form.css"
-          th:href="@{/css/user-form.css}">
+          th:href="@{/css/user.css}">
     <!-- DATA TABLE -->
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
@@ -56,10 +56,6 @@
             <div class="card-header">
                 <h4>Description</h4><br>
                 <a th:text="${MusicStore.equipmentType}"></a>
-            </div>
-            <div class="card-header">
-                <h4>Google Maps</h4><br>
-                <a th:text="${MusicStore.linkGoogle}"></a>
             </div>
             <br>
             <a class="btn btn-warning" href="https://spring-boot-gp.herokuapp.com/musicStore" role="button" style="color: white; font-size: x-large">Go to all Stores</a><br>

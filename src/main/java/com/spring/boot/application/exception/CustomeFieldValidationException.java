@@ -2,9 +2,6 @@ package com.spring.boot.application.exception;
 
 public class CustomeFieldValidationException extends Exception{
 
-    /**
-     *
-     */
     private static final long serialVersionUID = -4995433707591853255L;
 
     private String fieldName;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Mi primer Login</title>
+    <title>Login</title>
 
     <!--JQUERY-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -15,7 +15,7 @@
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
     <!-- CSS-->
-    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
+    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/set.css}">
 
 </head>
 <body>
@@ -42,6 +42,7 @@
                 <p><a href="#" th:href="@{/}">Go Back to starting Page! </a></p>
                 <p><a href="#" th:href="@{/signup}">Create user - Register</a>
             </div>
+            <br>
             <!--dzialamy na klasach bootstrapowych, pokazuje tekst jak zle wpisze login i haslo badz jak sie wyloguje -->
             <div th:if="${param.error}" class="alert alert-danger" role="alert">
                 Invalid username and password.

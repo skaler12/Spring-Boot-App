@@ -3,7 +3,6 @@
     <table id="userList" class="table table-bordered table-hover table-striped">
         <thead class="thead-light">
         <tr>
-            <th scope="col">Nr</th>
             <th scope="col">Firstname</th>
             <th scope="col">Sourname</th>
             <th scope="col">Username</th>
@@ -14,7 +13,6 @@
         <tbody>
         <tr>
         <tr th:each="user: ${userList}">
-            <td th:text="${user.id}"></td>
             <td th:text="${user.firstName}"></td>
             <td th:text="${user.lastName}"></td>
             <td th:text="${user.username}"></td>
