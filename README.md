@@ -1,2 +1,3 @@
-# Spring-Boot-Application
-# Add Pojo Class, entieties: User and Role. 
+# Application which is my thesis
+# Application for reviewing music stores in Warsaw
+Avaible here: https://spring-boot-gp.herokuapp.com/
