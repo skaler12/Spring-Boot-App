@@ -39,4 +39,4 @@ Grzegorz Poznański - Skaler12
 ![4](https://user-images.githubusercontent.com/57706581/84182190-4a7aec00-aa8a-11ea-80d8-f87290705c17.PNG)
 # 5 Chat
 ![5](https://user-images.githubusercontent.com/57706581/84182200-4c44af80-aa8a-11ea-81bf-588685f6c8e3.PNG)
-Thanks for visit my profile! 
+# Thank you for visiting my profile! 
