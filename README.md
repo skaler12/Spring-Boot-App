@@ -15,17 +15,19 @@ Avaible here: https://spring-boot-gp.herokuapp.com/
 - Java 11
 - Spring Boot
 - Spring 5
-- My Sql-
+- My Sql
 - Heroku
 - Css3
 - HTML5
 - Bootstrap
 - jQuery
 - Leaflet
+- Sockets
 - Hibernate
 - Junit and Mockito in the future
 
 # Programmer
 Grzegorz Poznański - Skaler12
 
+# 1 Loggin and Register
 ![1](https://user-images.githubusercontent.com/57706581/84178344-8612b780-aa84-11ea-83ba-ccd225be5ccd.PNG)
